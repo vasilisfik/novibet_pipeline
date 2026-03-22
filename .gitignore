@@ -2,9 +2,11 @@
 novibet_project/novibet.duckdb.tmp/
 novibet_project/*.duckdb
 
+
 # dbt artifacts
 novibet_project/target/
 novibet_project/dbt_packages/
+novibet_project/.user.yml
 
 # env + logs
 .venv/

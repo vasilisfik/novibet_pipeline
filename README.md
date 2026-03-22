@@ -78,3 +78,20 @@ As data volume grows:
 - Compute can scale horizontally via the distributed engine
 - Storage remains cost-efficient and scalable in the data lake
 - Additional aggregated tables can be introduced for high-demand queries
+
+## Optional: Querying the Data (DuckDB UI)
+
+To explore the data locally using DuckDB UI:
+
+1. Install DuckDB CLI  
+   Download from: https://duckdb.org/docs/installation/
+
+2. Activate the virtual environment:
+
+.venv\Scripts\Activate.ps1
+
+3. Open DuckDB UI:
+
+duckdb "novibet_project/novibet.duckdb" -ui
+
+This will open a local UI in the browser where queries can be executed against the database.
