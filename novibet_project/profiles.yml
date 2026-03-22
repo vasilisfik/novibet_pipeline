@@ -1,0 +1,7 @@
+novibet_project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: novibet.duckdb
+      threads: 4

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: dim_game_info
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+          - unique

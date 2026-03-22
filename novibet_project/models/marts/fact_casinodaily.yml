@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fact_casinodaily
+    columns:
+      - name: updated_timestamp
+        tests:
+          - not_null
+
+      - name: game_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_game_info')
+                field: game_id
+
+      - name: vip_sysname
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  [
+                    "POTENTIAL",
+                    "NONE",
+                    "BRONZE",
+                    "SILVER",
+                    "NEGATIVEVIP1",
+                    "GOLD",
+                  ]

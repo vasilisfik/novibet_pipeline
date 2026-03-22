@@ -1,0 +1,12 @@
+# duckdb temp + db
+novibet_project/novibet.duckdb.tmp/
+novibet_project/*.duckdb
+
+# dbt artifacts
+novibet_project/target/
+novibet_project/dbt_packages/
+
+# env + logs
+.venv/
+logs/
+__pycache__/
