@@ -41,3 +41,40 @@ The script:
 Execution is automated via Windows Task Scheduler, which triggers the script at scheduled intervals.
 
 This approach keeps transformation logic within dbt, while Python handles execution and external steps such as exporting outputs.
+
+## Bonus: Visualization & Big Data
+
+To expose a 100M+ record Gold table to a visualization tool, I would design the solution around scalable storage, efficient query performance, and incremental data processing.
+
+### Storage
+
+I would store the data in a cloud data lake (e.g. Azure Data Lake Gen2) using a columnar format such as Parquet, ideally managed through Delta Lake. This allows efficient compression, partitioning (e.g. by p_date), and ACID transactions.
+
+### Performance
+
+For query performance, I would:
+
+- Avoid views that trigger full recomputation on each query
+- Persist the Gold layer as a materialized table (e.g. Delta table)
+- Pre-aggregate data at the reporting grain
+- Leverage partition pruning and columnar storage
+
+### Compute
+
+I would use a distributed compute engine such as Databricks to handle large-scale transformations and query workloads, allowing compute to scale independently from storage.
+
+### Refresh Strategy
+
+Data would be processed incrementally using a timestamp watermark (e.g. updated_timestamp):
+
+- Only new or updated records are processed
+- Downstream tables are updated incrementally
+- BI tools can leverage incremental refresh where supported
+
+### Scalability
+
+As data volume grows:
+
+- Compute can scale horizontally via the distributed engine
+- Storage remains cost-efficient and scalable in the data lake
+- Additional aggregated tables can be introduced for high-demand queries
