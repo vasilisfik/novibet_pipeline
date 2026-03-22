@@ -3,7 +3,7 @@
 ## 1. Clone the repository
 
 git clone <your-repo-url>
-cd novibet_project
+cd novibet_pipeline
 
 ## 2. Create virtual environment
 
@@ -11,8 +11,8 @@ python -m venv .venv
 
 ## 3. Activate environment
 
-Windows:
-.venv\Scripts\activate
+Windows (PowerShell):
+.venv\Scripts\Activate.ps1
 
 ## 4. Install dependencies
 
